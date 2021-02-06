@@ -16,7 +16,7 @@ def insertion_Sort(input_array):
         # of their current position
         j = i-1
         while j >= 0 and index < input_array[j]:
-            input_array[j+1] = arr[j]
+            input_array[j+1] = input_array[j]
             j -= 1
         input_array[j+1] = index
 
@@ -28,9 +28,12 @@ unsorted_array = [19, 4, 55, 13, 12, 3, 99, 8]
 insertion_Sort(unsorted_array)
 
 # This code section generates the output
+print("")
 print("The insertion sorted array is:")
 
 # We iterate over the entire array length
 for i in range(len(unsorted_array)):
     # We print each element of the sorted output array
     print("%d" % unsorted_array[i])
+
+print("")
