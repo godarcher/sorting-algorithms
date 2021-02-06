@@ -38,7 +38,7 @@ def selection_sort(input_array):
                 min_value = j
 
         # Swapping input_array[i] with minimum element
-        input_array[i], input_array[min_idx] = input_array[min_idx], input_array[i]
+        input_array[i], input_array[min_value] = input_array[min_value], input_array[i]
 
 
 # Unsorted initial array
