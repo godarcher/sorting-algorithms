@@ -18,3 +18,41 @@
 
 # * This is the main function for selection sort
 # It takes an array as input and manipules the array for sorted output
+
+
+def selection_sort(input_array):
+
+    # for every element inside the input array
+    for i in range(len(input_array)):
+
+        # Finding the minimum element in remaining unsorted array
+        min_value = i
+
+        # For every element inside i+1 --> len(array)
+        for j in range(i+1, len(input_array)):
+
+            # If a new lower value is found
+            if input_array[min_value] > input_array[j]:
+
+                # Overwrite old value
+                min_value = j
+
+        # Swapping input_array[i] with minimum element
+        input_array[i], input_array[min_idx] = input_array[min_idx], input_array[i]
+
+
+# Unsorted initial array
+unsorted_array = [12, 45, 67, 2, 3, 9, 21, 5, 4, 19]
+
+# We use seletion sort to sort the unsorted array
+selection_sort(unsorted_array)
+
+print("")
+print("Final array after sorting: \n")
+
+# for evey element inside the unsorted array (which is now sorted)
+for i in range(len(unsorted_array)):
+    # Print element of sorted array
+    print(unsorted_array[i])
+
+print("")
