@@ -81,3 +81,5 @@ print("Sorted array is")
 for element in range(size):
     # Print the actual element
     print("%d" % unsorted_array[element]),
+
+print("")
