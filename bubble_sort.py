@@ -16,3 +16,37 @@
 
 # * This is the main function for bubble sort
 # It takes an array as input and manipules the array for sorted output
+
+
+def bubble_Sort(input_array):
+
+    # size is the amount of elements of the input array
+    size = len(input_array)
+
+    # We traverse trough every element of the input array
+    for i in range(size):
+
+        # For all between 0 and size - current element - 1
+        for j in range(0, size - i - 1):
+
+            # If the element is bigger then the next element, we swap
+            if input_array[j] > input_array[j+1]:
+
+                # The actual swap
+                input_array[j], input_array[j +
+                                            1] = input_array[j+1], input_array[j]
+
+
+# For demonstration purposes, we create an empty array
+unsorted_array = [63, 24, 29, 32, 12, 19, 10, 71, 31, 42]
+
+# Printing unsorted array
+print("")
+print("Unsorted Array : ", unsorted_array)
+
+# sort the unsorted array
+bubble_Sort(unsorted_array)
+
+# Printing Sorted Array
+print("Final Sorted array : ", unsorted_array)
+print("")
