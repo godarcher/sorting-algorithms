@@ -61,7 +61,7 @@ def sort_heap(input_array):
         # We swap the values
         input_array[element], input_array[0] = input_array[0], input_array[element]
         # We build the heap
-        build_heap(input_array, i, 0)
+        build_heap(input_array, element, 0)
 
 
 # Unsorted Array
