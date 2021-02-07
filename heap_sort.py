@@ -17,27 +17,30 @@
 """
 
 
-def build_heap(input_array, n, i):
-    largest = i  # Initialize largest as root
-    l = 2 * i + 1     # left = 2*i + 1
-    r = 2 * i + 2     # right = 2*i + 2
+def build_heap(input_array, n, root):
 
-    # See if left child of root exists and is
-    # greater than root
-    if l < n and input_array[largest] < input_array[l]:
-        largest = l
+    # Initialize the largests value to be the root element
+    largest = root
 
-    # See if right child of root exists and is
-    # greater than root
-    if r < n and input_array[largest] < input_array[r]:
-        largest = r
+    # Calculate the left and right of the heap stack
+    left = 2 * root + 1
+    right = 2 * root + 2
 
-    # Change root, if needed
-    if largest != i:
-        # swap
-        input_array[i], input_array[largest] = input_array[largest], input_array[i]
+    # if left inside scope (exists) and greater then largest overwrite root
+    if left < n and input_array[largest] < input_array[left]:
+        largest = left
 
-        # Heapify the root.
+    # if right inside scope (exists) and greater then largest overwrite root
+    if right < n and input_array[largest] < input_array[right]:
+        largest = right
+
+    # If largest is overwritten (not i anymore)
+    if largest != root:
+
+        # We swap i with largest
+        input_array[root], input_array[largest] = input_array[largest], input_array[root]
+
+        # Then we build the heap again (recursive call!)
         build_heap(input_array, n, largest)
 
 # The main function to sort an array of given size
