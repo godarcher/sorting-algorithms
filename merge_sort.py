@@ -61,13 +61,21 @@ def merge_Sort(input_array):
 
         # As long as index of left side is lower then size of left side (for size of left side)
         while i < len(left_side):
+
+            # We set element k of the array to element i of left side
             input_array[k] = left_side[i]
+
+            # Increment i by 1, k also
             i += 1
             k += 1
 
     # As long as index of right side is lower then size of right side (for size of right side)
         while j < len(right_side):
+
+            # We set element k of the array to element j of right side
             input_array[k] = right_side[j]
+
+            # Increment j by 1, k also
             j += 1
             k += 1
 
