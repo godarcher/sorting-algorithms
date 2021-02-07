@@ -63,10 +63,14 @@ def quick_Sort(input_array, low, high):
         quick_Sort(input_array, partition_index + 1, high)
 
 
-# Driver code
-arr = [10, 7, 8, 9, 1, 5]
-n = len(arr)
-quick_Sort(arr, 0, n-1)
+# This is the unsorted input array
+unsorted_array = [10, 7, 8, 9, 1, 5, 21, 3, 5, 11, 18]
+
+# Size is the amount of elements inside the unsorted array
+size = len(unsorted_array)
+
+# Apply quick sort (including partitioning) to the unsorted array
+quick_Sort(unsorted_array, 0, size-1)
 print("Sorted array is:")
 for i in range(n):
     print("%d" % arr[i])
