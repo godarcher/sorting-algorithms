@@ -34,6 +34,7 @@ def merge_Sort(input_array):
         merge_Sort(right_side)
 
         # We create three integers with value 0
+        # I is index of left side, J of right side, K of input array
         i = j = k = 0
 
         # We coppy the data to left side and right side arrays.
@@ -41,11 +42,16 @@ def merge_Sort(input_array):
 
             # If right is bigger then left
             if left_side[i] < right_side[j]:
+
+                # We set element k of the array to element i of left side
                 input_array[k] = left_side[i]
+
                 # Increment i by 1
                 i += 1
             # If right is smaller then left
             else:
+
+                # We set element k of the array to element j of right side
                 input_array[k] = right_side[j]
                 # Increment j by 1
                 j += 1
@@ -53,11 +59,13 @@ def merge_Sort(input_array):
             # We increment k anyways (independent of if else above)
             k += 1
 
+        # As long as index of left side is lower then size of left side (for size of left side)
         while i < len(left_side):
             input_array[k] = left_side[i]
             i += 1
             k += 1
 
+    # As long as index of right side is lower then size of right side (for size of right side)
         while j < len(right_side):
             input_array[k] = right_side[j]
             j += 1
