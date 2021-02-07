@@ -79,20 +79,34 @@ def merge_Sort(input_array):
             j += 1
             k += 1
 
-# function to print the array
 
+def display(input_array):
+    # ? This function will print the elements of the array
+    # * It takes sorted array input_array as input
 
-def display(arr):
-    for i in range(len(arr)):
-        print(arr[i], end=" ")
+    # For every element inside the now sorted array
+    for element in range(len(input_array)):
+
+        # Print the actual element
+        print(input_array[element], end=" ")
+
+    # then print a new line after the entire for loop
     print()
 
 
-# driver code
+# This code contains the main function (ran on running code)
 if __name__ == '__main__':
-    arr = [6, 5, 12, 10, 9, 1]
+
+    # We create an unsorted example array
+    unsorted_array = [6, 5, 12, 10, 9, 1, 3, 12, 25, 8, 1]
+
+    # We print the original array first
     print("Original array")
-    display(arr)
-    merge_Sort(arr)
+    display(unsorted_array)
+
+    # Then we use merge sort to sort the unsorted array
+    merge_Sort(unsorted_array)
+
+    # Now we can print the array, which now is sorted by mergesort
     print("Sorted array")
-    display(arr)
+    display(unsorted_array)
