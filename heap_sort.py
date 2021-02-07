@@ -51,20 +51,33 @@ def sort_heap(input_array):
     # We calculate the amount of elements inside the input array
     size = len(input_array)
 
-    # Build a maxheap.
-    for i in range(n//2 - 1, -1, -1):
-        build_heap(input_array, n, i)
+    # Build a heap from high to low
+    for element in range(size//2 - 1, -1, -1):
+        # We build the heap
+        build_heap(input_array, size, element)
 
-    # One by one extract elements
-    for i in range(n-1, 0, -1):
-        input_array[i], input_array[0] = input_array[0], input_array[i]  # swap
+    # Extract the elements and make swaps
+    for element in range(size-1, 0, -1):
+        # We swap the values
+        input_array[element], input_array[0] = input_array[0], input_array[element]
+        # We build the heap
         build_heap(input_array, i, 0)
 
 
-# Driver code
-input_array = [12, 11, 13, 5, 6, 7]
-sort_heap(input_array)
-n = len(input_array)
+# Unsorted Array
+unsorted_array = [13, 15, 3, 4, 6, 11, 21, 4, 42]
+
+# Apply the heap sort function on the unsorted array
+sort_heap(unsorted_array)
+
+# Calculate the size of the unsorted array
+size = len(unsorted_array)
+
+# Print the output
+print("")
 print("Sorted array is")
-for i in range(n):
-    print("%d" % input_array[i]),
+
+# For every element in the sorted array
+for element in range(size):
+    # Print the actual element
+    print("%d" % unsorted_array[element]),
