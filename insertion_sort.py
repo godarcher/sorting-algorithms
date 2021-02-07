@@ -14,11 +14,10 @@
     * Online; i.e., can sort a list as it receives it
 """
 
-# * This is the main function for insertionsort
-# It takes an array as input and manipules the array for sorted output
-
 
 def insertion_Sort(input_array):
+    # * This is the main function for insertionsort
+    # It takes an array as input and manipules the array for sorted output
 
     # For entire input array
     for i in range(1, len(input_array)):
