@@ -17,7 +17,8 @@
 """
 
 
-def build_heap(input_array, n, root):
+def build_heap(input_array, size, root):
+    # ? This function builds the heap out of a binary tree and swaps
 
     # Initialize the largests value to be the root element
     largest = root
@@ -27,11 +28,11 @@ def build_heap(input_array, n, root):
     right = 2 * root + 2
 
     # if left inside scope (exists) and greater then largest overwrite root
-    if left < n and input_array[largest] < input_array[left]:
+    if left < size and input_array[largest] < input_array[left]:
         largest = left
 
     # if right inside scope (exists) and greater then largest overwrite root
-    if right < n and input_array[largest] < input_array[right]:
+    if right < size and input_array[largest] < input_array[right]:
         largest = right
 
     # If largest is overwritten (not i anymore)
@@ -41,13 +42,14 @@ def build_heap(input_array, n, root):
         input_array[root], input_array[largest] = input_array[largest], input_array[root]
 
         # Then we build the heap again (recursive call!)
-        build_heap(input_array, n, largest)
-
-# The main function to sort an array of given size
+        build_heap(input_array, size, largest)
 
 
 def sort_heap(input_array):
-    n = len(input_array)
+    # ? This function iterates over the build heap and uses it to sort the input
+
+    # We calculate the amount of elements inside the input array
+    size = len(input_array)
 
     # Build a maxheap.
     for i in range(n//2 - 1, -1, -1):
