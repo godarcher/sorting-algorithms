@@ -17,48 +17,49 @@
 """
 
 
-def heapify(arr, n, i):
+def build_heap(input_array, n, i):
     largest = i  # Initialize largest as root
     l = 2 * i + 1     # left = 2*i + 1
     r = 2 * i + 2     # right = 2*i + 2
 
     # See if left child of root exists and is
     # greater than root
-    if l < n and arr[largest] < arr[l]:
+    if l < n and input_array[largest] < input_array[l]:
         largest = l
 
     # See if right child of root exists and is
     # greater than root
-    if r < n and arr[largest] < arr[r]:
+    if r < n and input_array[largest] < input_array[r]:
         largest = r
 
     # Change root, if needed
     if largest != i:
-        arr[i], arr[largest] = arr[largest], arr[i]  # swap
+        # swap
+        input_array[i], input_array[largest] = input_array[largest], input_array[i]
 
         # Heapify the root.
-        heapify(arr, n, largest)
+        build_heap(input_array, n, largest)
 
 # The main function to sort an array of given size
 
 
-def heapSort(arr):
-    n = len(arr)
+def sort_heap(input_array):
+    n = len(input_array)
 
     # Build a maxheap.
     for i in range(n//2 - 1, -1, -1):
-        heapify(arr, n, i)
+        build_heap(input_array, n, i)
 
     # One by one extract elements
     for i in range(n-1, 0, -1):
-        arr[i], arr[0] = arr[0], arr[i]  # swap
-        heapify(arr, i, 0)
+        input_array[i], input_array[0] = input_array[0], input_array[i]  # swap
+        build_heap(input_array, i, 0)
 
 
 # Driver code
-arr = [12, 11, 13, 5, 6, 7]
-heapSort(arr)
-n = len(arr)
+input_array = [12, 11, 13, 5, 6, 7]
+sort_heap(input_array)
+n = len(input_array)
 print("Sorted array is")
 for i in range(n):
-    print("%d" % arr[i]),
+    print("%d" % input_array[i]),
