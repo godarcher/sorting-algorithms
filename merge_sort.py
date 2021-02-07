@@ -13,7 +13,7 @@
 """
 
 
-def mergeSort(input_array):
+def merge_Sort(input_array):
     # ? The mergesort function sorts using dividing and merging sublists.
     # * The input it takes is an input_array, which normally is unsorted.
 
@@ -29,29 +29,37 @@ def mergeSort(input_array):
         # The right part of the array is the input array from middle till end (using substring method)
         right_side = input_array[middle:]
 
-        # Calling mergesort function on subparts of array
-        mergeSort(left_side)
-        mergeSortright_side)
+        # We recursively call this function for the subsets left side and right side
+        merge_Sort(left_side)
+        merge_Sort(right_side)
 
-        i=j=k=0
+        # We create three integers with value 0
+        i = j = k = 0
 
-        # Copying data to temp arrays leftArray[] and rightArray[]
+        # We coppy the data to left side and right side arrays.
         while i < len(left_side) and j < len(right_side):
+
+            # If right is bigger then left
             if left_side[i] < right_side[j]:
-                input_array[k]=left_side[i]
+                input_array[k] = left_side[i]
+                # Increment i by 1
                 i += 1
+            # If right is smaller then left
             else:
-                input_array[k]=right_side[j]
+                input_array[k] = right_side[j]
+                # Increment j by 1
                 j += 1
+
+            # We increment k anyways (independent of if else above)
             k += 1
 
         while i < len(left_side):
-            input_array[k]=left_side[i]
+            input_array[k] = left_side[i]
             i += 1
             k += 1
 
         while j < len(right_side):
-            input_array[k]=right_side[j]
+            input_array[k] = right_side[j]
             j += 1
             k += 1
 
@@ -60,15 +68,15 @@ def mergeSort(input_array):
 
 def display(arr):
     for i in range(len(arr)):
-        print(arr[i], end = " ")
+        print(arr[i], end=" ")
     print()
 
 
 # driver code
 if __name__ == '__main__':
-    arr=[6, 5, 12, 10, 9, 1]
+    arr = [6, 5, 12, 10, 9, 1]
     print("Original array")
     display(arr)
-    mergeSort(arr)
+    merge_Sort(arr)
     print("Sorted array")
     display(arr)
