@@ -77,8 +77,8 @@ print("")
 print("Sorted array is:")
 
 # Print the actual elements of the array
-for i in range(size:
-    print("%d" % arr[i])
+for i in range(size):
+    print("%d" % unsorted_array[i])
 
 # beautify output
 print("")
