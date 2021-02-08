@@ -87,7 +87,7 @@ def display(input_array):
     # For every element inside the now sorted array
     for element in range(len(input_array)):
 
-        # Print the actual element
+        # Print the actual elements, with spaces in between following elements.
         print(input_array[element], end=" ")
 
     # then print a new line after the entire for loop
