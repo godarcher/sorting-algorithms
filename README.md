@@ -10,4 +10,5 @@ This contains 6 python sorting algorithms:
 
 It also contains:
 - binary search
+- linear search
 - a demonstration of using quicksort and binary search together
