@@ -84,3 +84,31 @@ def binary_Search(sorted_array, start_index, list_length, element):
     else:
         # We print the above to let the user known the element was not found.
         return "Element " + str(element) + " is not in this list"
+
+
+def display(input_array):
+    # ? This function will print the elements of the array
+    # * It takes sorted array input_array as input
+
+    # For every element inside the now sorted array
+    for element in range(len(input_array)):
+
+        # Print the actual elements, with spaces in between following elements.
+        print(input_array[element], end=" ")
+
+    # then print a new line after the entire for loop
+    print()
+
+#?###################
+#* Actual main code #
+#?###################
+
+
+# This is the unsorted input array
+unsorted_array = [10, 7, 8, 9, 1, 5, 21, 3, 5, 11, 18, 31, 2, 4, 56, 6]
+
+# Size is the amount of elements inside the unsorted array
+size = len(unsorted_array)
+
+# Apply quick sort (including partitioning) to the unsorted array
+quick_Sort(unsorted_array, 0, size-1)
