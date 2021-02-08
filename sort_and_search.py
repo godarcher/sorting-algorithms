@@ -68,7 +68,7 @@ def binary_Search(sorted_array, start_index, list_length, element):
         # We start at the middle of the list and check if the element is in the middle.
         if sorted_array[middle] == element:
             # If this is the case we print we found the element at this point.
-            return "Element " + str(element) + " is at " + str(middle + 1)
+            return "Element " + str(element) + " is at index" + str(middle + 1)
 
         # If not in the middle, check if it is on the left side.
         elif sorted_array[middle] > element:
@@ -118,4 +118,5 @@ print("Sorted array")
 display(unsorted_array)
 
 # Find element 11 in sorted array using binary search
-binary_Search(unsorted_array, 1, len(unsorted_array), 11)
+output = binary_Search(unsorted_array, 1, len(unsorted_array), 11)
+print(output)
