@@ -11,3 +11,31 @@
 * Binary search runs in logarithmic time in the worst case, making {\displaystyle O(\log n)}O(\log n) comparisons, 
 * where {\displaystyle n}n is the number of elements in the array.[a][6]
 """
+
+
+def binary_Search(sorted_array, left, right, element):
+    # l is the starting reference to find the middle.
+    # It will keep changing time we split the array to get subarrays.
+    # Hence it is not hard coded into the algorithm.
+    # It won't make much importance to the user since the user needs to know the first middle point is in reference with the first index which is zero.
+    # Therefore when calling the function, l will be 0.
+    # R is the lenght of the list.
+    # Python's len() function gives the accurate lenght but indexing starts at one value less.
+    # Hence the lenght will be one value less.
+    # Check if the list has not been exhausted.
+    if right >= left:
+        # We are checking i
+        mid = left + (right - left) // 2
+        # We start at the middle of the list and check if the element
+        if sorted_array[mid] == element:
+            return "Element " + str(element) + " is at " + str(mid + 1)
+        # We check if the element is on the left side of the split array
+        elif sorted_array[mid] > element:
+            return binary_Search(sorted_array, left, mid-1, element)
+        # Otherwise, the element is in the right side of the split array.
+        else:
+            return binary_Search(sorted_array, mid + 1, right, element)
+    # If we fail to find the element in the list we return an absent statement.
+    else:
+        # Element is not present in the array
+        return "Element " + str(element) + " is not in the list"
