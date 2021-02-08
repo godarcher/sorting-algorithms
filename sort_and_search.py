@@ -112,3 +112,10 @@ size = len(unsorted_array)
 
 # Apply quick sort (including partitioning) to the unsorted array
 quick_Sort(unsorted_array, 0, size-1)
+
+# Show the quicksorted array
+print("Sorted array")
+display(unsorted_array)
+
+# Find element 11 in sorted array using binary search
+binary_Search(unsorted_array, 1, len(unsorted_array), 11)
