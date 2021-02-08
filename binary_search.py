@@ -28,17 +28,17 @@ def binary_Search(sorted_array, start_index, list_length, element):
         # We start at the middle of the list and check if the element is in the middle.
         if sorted_array[middle] == element:
             # If this is the case we print we found the element at this point.
-            return "Element " + str(element) + " is at " + str(mid + 1)
+            return "Element " + str(element) + " is at " + str(middle + 1)
 
         # If not in the middle, check if it is on the left side.
         elif sorted_array[middle] > element:
             # Return a recursive call with the left part of the sorted array.
-            return binary_Search(sorted_array, start_index, mid-1, element)
+            return binary_Search(sorted_array, start_index, middle-1, element)
 
         # If neither, we automaticly know it is on the right side.
         else:
             # Return a recursive call with the right part of the sorted array.
-            return binary_Search(sorted_array, mid + 1, list_length, element)
+            return binary_Search(sorted_array, middle + 1, list_length, element)
 
     # This means that the item is not found in the list.
     else:
