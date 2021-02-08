@@ -13,29 +13,31 @@
 """
 
 
-def binary_Search(sorted_array, left, right, element):
-    # l is the starting reference to find the middle.
-    # It will keep changing time we split the array to get subarrays.
-    # Hence it is not hard coded into the algorithm.
-    # It won't make much importance to the user since the user needs to know the first middle point is in reference with the first index which is zero.
-    # Therefore when calling the function, l will be 0.
-    # R is the lenght of the list.
-    # Python's len() function gives the accurate lenght but indexing starts at one value less.
-    # Hence the lenght will be one value less.
-    # Check if the list has not been exhausted.
-    if right >= left:
-        # We are checking i
-        mid = left + (right - left) // 2
-        # We start at the middle of the list and check if the element
-        if sorted_array[mid] == element:
+def binary_Search(sorted_array, start_index, list_length, element):
+    # ? This method uses recursion to find an element inside a sorted array.
+    # * Start index is the starting index for finding the middle
+    # * The starting array will chance when the array becomes smaller.
+    # * list_length is the size of the length by len(list) however we compensate 1 for counting from 1
+
+    # We check if the list is not fully traversed (array to small)
+    if list_length >= start_index:
+
+        # Calculate the middle of the list
+        middle = start_index + (list_length - start_index) // 2
+
+        # We start at the middle of the list and check if the element is in the middle
+        if sorted_array[middle] == element:
+            # If this is the case we print we found the element at this point
             return "Element " + str(element) + " is at " + str(mid + 1)
+
         # We check if the element is on the left side of the split array
-        elif sorted_array[mid] > element:
-            return binary_Search(sorted_array, left, mid-1, element)
+        elif sorted_array[middle] > element:
+            return binary_Search(sorted_array, start_index, mid-1, element)
         # Otherwise, the element is in the right side of the split array.
         else:
-            return binary_Search(sorted_array, mid + 1, right, element)
-    # If we fail to find the element in the list we return an absent statement.
+            return binary_Search(sorted_array, mid + 1, list_length, element)
+
+    # This means that the item is not found in the list.
     else:
-        # Element is not present in the array
-        return "Element " + str(element) + " is not in the list"
+        # We print the above to let the user known the element was not found.
+        return "Element " + str(element) + " is not in this list"
